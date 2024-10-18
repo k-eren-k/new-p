@@ -8,7 +8,7 @@ require('dotenv').config();
 const app = express();
 const cache = new NodeCache({ stdTTL: 600 });
 const PORT = process.env.PORT || 3000;
-const GITHUB_TOKEN = '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';
+const GITHUB_TOKEN = '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';
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
