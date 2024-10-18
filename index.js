@@ -8,10 +8,10 @@ require('dotenv').config();
 const app = express();
 const cache = new NodeCache({ stdTTL: 600 });
 const PORT = process.env.PORT || 3000;
-const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
+const GITHUB_TOKEN = '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';
 
 app.set('view engine', 'ejs');
-app.use(compression());
+app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 const fetchGitHubRepos = async (githubUsername) => {
@@ -59,8 +59,8 @@ const fetchNpmPackages = async (npmUsername) => {
 
 app.get('/', async (req, res) => {
     try {
-        const githubUsername = process.env.githubUsername;
-        const npmUsername = process.env.npmUsername;
+        const githubUsername = 'erenkrs';
+        const npmUsername = 'dis.dev';
 
         const [repos, npmPackages] = await Promise.allSettled([
             fetchGitHubRepos(githubUsername),
