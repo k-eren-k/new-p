@@ -71,7 +71,7 @@ const fetchGitHubRepos = async (githubUsername) => {
 
 const fetchNpmPackages = async (npmUsername) => {
     const cacheKey = `npm_packages_${npmUsername}`; 
-    const cachedPackages = cache.get(cacheKey); 
+    const cachedPackages = cache.get(cacheKey);
 
     if (cachedPackages) {
         return cachedPackages;
@@ -81,8 +81,28 @@ const fetchNpmPackages = async (npmUsername) => {
         const response = await axios.get(`https://registry.npmjs.org/-/v1/search?text=maintainer:${npmUsername}&size=5`);
         const packages = response.data.objects.map(pkg => pkg.package);
 
-        cache.set(cacheKey, packages); 
-        return packages;
+        const packagesWithDependencies = await Promise.all(
+            packages.map(async (pkg) => {
+                try {
+                    const packageDetailsResponse = await axios.get(`https://registry.npmjs.org/${encodeURIComponent(pkg.name)}`);
+
+                    const latestVersion = packageDetailsResponse.data['dist-tags'].latest;
+
+                    const packageDetails = packageDetailsResponse.data.versions[latestVersion];
+
+                    pkg.dependencies = packageDetails.dependencies || {}; 
+
+                } catch (error) {
+                    console.error(`Error fetching details for package ${pkg.name}:`, error.message);
+                    pkg.dependencies = {}; 
+                }
+                return pkg;
+            })
+        );
+
+        // Cache'e kaydet
+        cache.set(cacheKey, packagesWithDependencies); 
+        return packagesWithDependencies;
     } catch (error) {
         console.error('Error fetching NPM packages:', error.message);
         return [];
