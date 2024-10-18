@@ -59,7 +59,7 @@ const fetchNpmPackages = async (npmUsername) => {
 
 app.get('/', async (req, res) => {
     try {
-        const githubUsername = process.env.githubUsername
+        const githubUsername = process.env.githubUsername;
         const npmUsername = process.env.npmUsername;
 
         const [repos, npmPackages] = await Promise.allSettled([
