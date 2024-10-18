@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'Geist-Light';
+    src: url('/fonts/Geist-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Oceanwide-Semibold';
+    src: url('/fonts/Oceanwide-Semibold.otf') format('truetype');
+}
+
+.footer {
+    width: 59%;
+    max-width: 1160px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+    height: 70px;
+    padding-left: 20px;
+    color: rgba(0, 0, 0, 0.548);
+    margin-top: auto;
+    font-family: "Oceanwide-Semibold", sans-serif;
+    padding-right: 20px;
+}
+
+@media (max-width: 768px) {
+    .footer {
+        width: 95%;
+        flex-direction: column;
+        height: auto;
+        text-align: center;
+        padding-left: 0;
+        padding-right: 0;
+    }
+}

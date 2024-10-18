@@ -1,0 +1,152 @@
+@font-face {
+    font-family: 'Oceanwide-Semibold';
+    src: url('/fonts/Oceanwide-Semibold.otf') format('truetype');
+}
+
+* {
+    font-family: "Oceanwide-Semibold", sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+    margin: 0;
+}
+
+main {
+    width: 60%;
+    max-width: 1160px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 110px;
+    display: flex;
+    margin-bottom: 75px;
+    padding-left: 20px;
+    justify-content: left;
+    flex-direction: column;
+}
+
+main h1 {
+    display: flex;
+    font-size: 50px;
+    align-items: center;
+    justify-content: left;
+}
+
+.h1-1 {
+    color: blueviolet;
+    margin-bottom: -20px;
+}
+
+.h1-2 {
+    margin-top: 5px;
+}
+
+.main-container {
+    margin-top: 40px;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cont-top {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.cont-main {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.cont-bottom {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.inp-div {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.inp-div:last-child {
+    margin-right: 0;
+}
+
+.inp-div input {
+    background-color: #FAFAFA;
+    height: 42.5px;
+    margin-top: 10px;
+    width: 100%;
+    padding-left: 20px;
+    font-weight: 400;
+    border: 1px solid rgba(0, 0, 0, 0.158);
+}
+
+.inp-div input:focus {
+    outline: 1px solid black;
+}
+
+.main-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#message-div input {
+    height: 140px;
+}
+
+.main-container button {
+    width: 250px;
+    height: 50px;
+    margin-top: 12.5px;
+    cursor: pointer;
+    border: none;
+    color: rgba(255, 255, 255, 0.637);
+    font-size: 13px;
+    background-color: #222222;
+    transition: all 0.1s ease;
+}
+
+.main-container button:hover {
+    color: white;
+}
+
+@media (max-width: 768px) {
+    main {
+        width: 90%;
+        margin-top: 80px;
+        padding-left: 10px;
+        margin-bottom: 50px;
+        padding-right: 10px;
+    }
+
+    main h1 {
+        font-size: 30px;
+    }
+
+    .cont-top {
+        margin-top: 0px;
+        flex-direction: column;
+    }
+
+    .cont-main {
+        flex-direction: column;
+    }
+
+    .inp-div {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .main-container button {
+        width: 100%;
+    }
+}

@@ -1,0 +1,45 @@
+<% if (npmPackages.length > 0) { %>
+    <% npmPackages.forEach(pkg => { %>
+        <div class="card">
+            <div class="card-header">
+                <div class="card-header-text">
+                    <i class="fa-regular fa-box"></i>
+                    <p>
+                        <%= pkg.name %> 
+                    </p>
+                </div>
+            </div>
+            <div class="card-main">
+                <p class="aciklama">
+                    <%= pkg.description || 'Açıklama Bulunmuyor' %> 
+                </p>
+                <div class="badges">
+                    <% if (pkg.dependencies && Object.keys(pkg.dependencies).length > 0) { %>
+                        <% Object.keys(pkg.dependencies).forEach(dep => { %>
+                            <li class="badge">
+                                <%= dep %> 
+                            </li>
+                        <% }) %>
+                    <% } else { %>
+                        <span class="badge badge-gray">No dependencies</span> 
+                    <% } %>
+                </div>
+            </div>
+            <div class="card-bottom">
+                <div class="infos">
+                    <div class="info"><i class="fa-regular fa-box"></i>
+                        <%= pkg.version %> 
+                    </div>
+                    <div class="info"><i class="fa-regular fa-download"></i>
+                        <%= pkg.downloads || 'Unknown' %> 
+                    </div>
+                </div>
+                <p class="update">
+                    <%= new Date(pkg.date).toLocaleDateString() %> >
+                </p>
+            </div>
+        </div>
+    <% }) %>
+<% } else { %>
+    <p>No NPM packages found or an error occurred while fetching NPM packages.</p>
+<% } %>

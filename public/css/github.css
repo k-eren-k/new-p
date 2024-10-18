@@ -1,0 +1,229 @@
+@font-face {
+    font-family: 'Geist-Light';
+    src: url('/fonts/Geist-Regular.ttf') format('truetype');
+}
+
+.text-div {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    flex-direction: column;
+}
+
+.text-div .ac {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.623);
+}
+
+.text-div .bs {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.github {
+    margin: 20px auto;
+    width: 60%;
+    max-width: 1160px;
+    margin-top: 200px;
+}
+
+.github-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.github-header p {
+    font-size: 22.5px;
+    color: #282828;
+    font-family: "Geist-Light", sans-serif;
+}
+
+.github-header p strong {
+    font-size: 22.5px;
+    margin-right: 5 1qpx;
+    font-family: "Geist-Light", sans-serif;
+}
+
+.github-logo {
+    height: 45px;
+    width: 45px;
+    margin-right: 10px;
+}
+
+.github-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+    padding: 20px;
+}
+
+.card {
+    background-color: #ffffffab;
+    border: 1px solid #E4E4E7;
+    border-radius: 20px;
+    padding: 20px 25px;
+    min-height: 216px;
+    font-family: "Geist-Light", sans-serif;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.041);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition: all 0.1s ease;
+    cursor: pointer;
+}
+
+.card:hover {
+    background-color: #ffffffc7;
+    transform: scale(1.02);
+}
+
+.card-header {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.card-header-text {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.card-header-text i {
+    color: #666666;
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.card-header-text p {
+    color: rgb(31 41 55);
+}
+
+.card-main {
+    flex: 1;
+    margin-top: 6.75px;
+    margin-bottom: 6.75px;
+}
+
+.aciklama {
+    color: rgb(75 85 99);
+    text-align: left;
+    margin-bottom: 0.4rem;
+}
+
+.badges {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    list-style: none;
+    margin-top: 7.5px;
+}
+
+.badge {
+    border-radius: 100px;
+    padding: 5px 8.5px;
+    font-size: 12.5px;
+    cursor: pointer;
+}
+
+.card-bottom {
+    margin-top: auto;
+    width: 100%;
+    bottom: 0px;
+    display: flex;
+    align-items: center;
+}
+
+.infos {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.info {
+    color: #6B7280;
+    font-weight: 300;
+    font-size: 14.5px;
+    gap: 4px;
+}
+
+.update {
+    margin-left: auto;
+    font-size: 14.5px;
+    color: #6B7280;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination button {
+    background-color: #6666e9cc;
+    color: white;
+    border: none;
+    border-radius: 100px;
+    padding: 10px 15px;
+    backdrop-filter: blur(10px);
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.pagination button:disabled {
+    background-color: #ccc;
+}
+
+.page-info {
+    align-self: center;
+    margin: 0 10px;
+    font-size: 16px;
+}
+
+
+@media (max-width: 768px) {
+    .github {
+        margin-top: 135px;
+        width: 95%;
+    }
+
+    .github-header p {
+        font-size: 18px;
+    }
+
+    .github-list {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 15px 20px;
+        min-height: 200px;
+    }
+
+    .card-header {
+        height: 40px;
+    }
+
+    .card-header-text i {
+        font-size: 18px;
+    }
+
+    .card-main {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .pagination button {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+}

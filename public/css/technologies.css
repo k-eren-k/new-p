@@ -1,0 +1,130 @@
+@font-face {
+    font-family: 'Geist-Light';
+    src: url('/fonts/Geist-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Oceanwide-Semibold';
+    src: url('/fonts/Oceanwide-Semibold.otf') format('truetype');
+}
+
+.technologies {
+    margin: 20px auto;
+    width: 60%;
+    max-width: 1160px;
+    margin-top: 100px;
+}
+
+.technologies-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.technologies-header p {
+    font-size: 22.5px;
+    color: #282828;
+    font-family: "Oceanwide-Semibold", sans-serif;
+}
+
+.technologies-header p strong {
+    font-size: 22.5px;
+    margin-right: 5 1qpx;
+    font-family: "Oceanwide-Semibold", sans-serif;
+}
+
+.technologies-logo {
+    height: 45px;
+    width: 45px;
+    margin-right: 10px;
+}
+
+.text-div {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    flex-direction: column;
+}
+
+.text-div .ac {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.623);
+}
+
+.text-div .bs {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.technologies-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 12px;
+    padding: 20px;
+}
+
+.t-card {
+    background-color: #ffffffab;
+    border: 1px solid #E4E4E7;
+    border-radius: 20px;
+    padding: 17px 19px;
+    align-items: center;
+    font-family: "Geist-Light", sans-serif;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.041);
+    display: flex;
+    justify-content: left;
+    opacity: 1;
+    cursor: pointer;
+}
+
+.t-card img {
+    height: 27px;
+    width: 27px;
+    margin-right: 12.5px;
+    object-fit: contain;
+}
+
+.t-card p {
+    font-family: "Oceanwide-Semibold", sans-serif;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.712);
+    font-size: 14.5px
+}
+
+.t-card:hover {
+    background-color: #ffffffc7;
+    transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+    .technologies {
+        width: 95%;
+        margin-top: 115px;
+    }
+
+    .technologies-header p {
+        font-size: 18px;
+    }
+
+    .technologies-list {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .t-card {
+        flex-direction: row;
+        padding: 15px 18px;
+    }
+
+    .t-card img {
+        height: 24px;
+        width: 24px;
+    }
+
+    .t-card p {
+        font-size: 13px;
+    }
+}

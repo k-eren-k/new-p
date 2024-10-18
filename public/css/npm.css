@@ -1,0 +1,82 @@
+@font-face {
+    font-family: 'Geist-Light';
+    src: url('/fonts/Geist-Regular.ttf') format('truetype');
+}
+
+.npm {
+    margin: 20px auto;
+    width: 60%;
+    max-width: 1160px;
+    margin-top: 100px;
+}
+
+.npm-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.npm-header p {
+    font-size: 22.5px;
+    color: #282828;
+    font-family: "Geist-Light", sans-serif;
+}
+
+.npm-header p strong {
+    font-size: 22.5px;
+    margin-right: 5 1qpx;
+    font-family: "Geist-Light", sans-serif;
+}
+
+.npm-logo {
+    height: 45px;
+    width: 45px;
+    margin-right: 10px;
+}
+
+.text-div {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    flex-direction: column;
+}
+
+.text-div .ac {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.623);
+}
+
+.text-div .bs {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.npm-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+    padding: 20px;
+}
+
+@media (max-width: 768px) {
+    .npm {
+        width: 95%;
+        margin-top: 115px;
+    }
+
+    .npm-header p {
+        font-size: 18px;
+    }
+
+    .npm-list {
+        grid-template-columns: 1fr;
+    }
+
+    .npm-logo {
+        height: 35px;
+        width: 35px;
+    }
+}

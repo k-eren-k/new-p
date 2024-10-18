@@ -1,0 +1,52 @@
+<% if (repos.length > 0) { %>
+<% repos.filter(repo => !repo.private).forEach(repo => { %>
+<div class="card">
+    <div class="card-header">
+        <div class="card-header-text">
+            <i class="fa-regular fa-user"></i>
+            <p>
+                <%= repo.full_name %>
+            </p>
+        </div>
+    </div>
+    <div class="card-main">
+        <p class="aciklama">
+            <%= repo.description || 'Açıklama Bulunmuyor' %>
+        </p>
+        <div class="badges">
+            <% if (repo.languages && repo.languages.length > 0) { %>
+            <% repo.languages.forEach(language => { %>
+            <li class="badge">
+                <%= language %>
+            </li>
+            <% }) %>
+            <% } else { %><span class="badge badge-gray">No
+                languages</span>
+
+            
+            <% } %>
+        </div>
+    </div>
+    <div class="card-bottom">
+        <div class="infos">
+            <div class="info"><i class="fa-regular fa-star"></i>
+                <%= repo.stargazers_count %>
+            </div>
+            <div class="info"><i class="fa-regular fa-code-fork"></i>
+                <%= repo.forks_count %>
+            </div>
+            <div class="info"><i class="fa-regular fa-eye"></i>
+                <%= repo.watchers_count %>
+            </div>
+        </div>
+        <p class="update">Updated
+            <%= new Date(repo.updated_at).toLocaleDateString() %>
+        </p>
+    </div>
+</div>
+<% }) %>
+<% } else { %>
+<p>No repositories found or an error occurred while fetching repositories.</p>
+
+
+<% } %>
