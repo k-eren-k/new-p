@@ -44,8 +44,24 @@ const fetchGitHubRepos = async (githubUsername) => {
         });
 
         const repos = githubResponse.data;
-        cache.set(cacheKey, repos);
-        return repos;
+
+        const reposWithLanguages = await Promise.all(
+            repos.map(async (repo) => {
+                try {
+                    const languageResponse = await axios.get(repo.languages_url, {
+                        headers: { Authorization: `Bearer ${GITHUB_TOKEN}` }
+                    });
+                    repo.languages = Object.keys(languageResponse.data);
+                } catch (error) {
+                    console.error(`Error fetching languages for repo ${repo.name}:`, error.message);
+                    repo.languages = [];
+                }
+                return repo;
+            })
+        );
+
+        cache.set(cacheKey, reposWithLanguages); 
+        return reposWithLanguages;
     } catch (error) {
         console.error('Error fetching GitHub repos:', error.response ? error.response.data : error.message);
         return [];
