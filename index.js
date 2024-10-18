@@ -81,33 +81,32 @@ const fetchNpmPackages = async (npmUsername) => {
         const response = await axios.get(`https://registry.npmjs.org/-/v1/search?text=maintainer:${npmUsername}&size=5`);
         const packages = response.data.objects.map(pkg => pkg.package);
 
-        const packagesWithDependencies = await Promise.all(
+        const packagesWithDetails = await Promise.all(
             packages.map(async (pkg) => {
                 try {
                     const packageDetailsResponse = await axios.get(`https://registry.npmjs.org/${encodeURIComponent(pkg.name)}`);
-
                     const latestVersion = packageDetailsResponse.data['dist-tags'].latest;
-
                     const packageDetails = packageDetailsResponse.data.versions[latestVersion];
-
                     pkg.dependencies = packageDetails.dependencies || {}; 
-
+                    const downloadsResponse = await axios.get(`https://api.npmjs.org/downloads/point/last-month/${encodeURIComponent(pkg.name)}`);
+                    pkg.downloads = downloadsResponse.data.downloads || 0;
                 } catch (error) {
                     console.error(`Error fetching details for package ${pkg.name}:`, error.message);
                     pkg.dependencies = {}; 
+                    pkg.downloads = 0; 
                 }
                 return pkg;
             })
         );
 
-        // Cache'e kaydet
-        cache.set(cacheKey, packagesWithDependencies); 
-        return packagesWithDependencies;
+        cache.set(cacheKey, packagesWithDetails); 
+        return packagesWithDetails;
     } catch (error) {
         console.error('Error fetching NPM packages:', error.message);
         return [];
     }
 };
+
 
 
 app.get('/', async (req, res) => {
